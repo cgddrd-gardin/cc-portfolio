@@ -33,9 +33,9 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
 
   return (
     <article>
-      <header style={{ marginBottom: '3rem' }}>
-        <h1>{post.title}</h1>
-        <time style={{ color: 'var(--gray)', fontSize: '0.9rem' }}>
+      <header style={{ marginBottom: 'var(--space-4xl)' }}>
+        <h1 style={{ marginBottom: 'var(--space-lg)' }}>{post.title}</h1>
+        <time>
           {new Date(post.date).toLocaleDateString('en-US', {
             year: 'numeric',
             month: 'long',
@@ -44,7 +44,9 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </time>
       </header>
 
-      <div>
+      <div style={{
+        maxWidth: '680px',
+      }}>
         <MDXRemote source={post.content} />
       </div>
     </article>

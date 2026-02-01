@@ -5,10 +5,10 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div>
-      <h1>About</h1>
+    <div style={{ maxWidth: '600px' }}>
+      <h1 style={{ marginBottom: 'var(--space-2xl)' }}>About</h1>
 
-      <section style={{ marginTop: '2rem' }}>
+      <section>
         <p>
           Hi, I'm [Your Name]. I'm a developer and designer focused on creating
           thoughtful, accessible experiences on the web.
@@ -25,8 +25,8 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section style={{ marginTop: '3rem' }}>
-        <h2>Get in Touch</h2>
+      <section>
+        <h2>Connect</h2>
         <p>
           You can find me on{' '}
           <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
@@ -41,11 +41,11 @@ export default function AboutPage() {
         </p>
       </section>
 
-      <section style={{ marginTop: '3rem' }}>
-        <h2>This Site</h2>
+      <section>
+        <h2>Colophon</h2>
         <p>
-          This site is built with Next.js and TypeScript. The source code is
-          available on GitHub under the MIT license.
+          This site is built with Next.js, TypeScript, and MDX. It's deployed on
+          GitHub Pages and the source code is available under the MIT license.
         </p>
       </section>
     </div>

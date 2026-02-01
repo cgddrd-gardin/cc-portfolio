@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { getAllPosts } from '../lib/posts'
 
 export const metadata = {
-  title: 'Blog - Your Name',
+  title: 'Writing - Your Name',
   description: 'Articles and thoughts on design, development, and more',
 }
 
@@ -11,36 +11,40 @@ export default function BlogPage() {
 
   return (
     <div>
-      <h1>Blog</h1>
-      <p style={{ color: 'var(--gray)', marginBottom: '3rem' }}>
-        {posts.length} {posts.length === 1 ? 'post' : 'posts'}
-      </p>
+      <header style={{ marginBottom: 'var(--space-4xl)' }}>
+        <h1 style={{ marginBottom: 'var(--space-md)' }}>Writing</h1>
+        <p style={{ color: 'var(--text-secondary)' }}>
+          {posts.length} {posts.length === 1 ? 'post' : 'posts'}
+        </p>
+      </header>
 
-      <div>
-        {posts.length === 0 ? (
-          <p>No posts yet. Check back soon!</p>
-        ) : (
-          posts.map((post) => (
-            <article key={post.slug} style={{ marginBottom: '2.5rem' }}>
-              <h2 style={{ margin: '0.5rem 0' }}>
-                <Link href={`/blog/${post.slug}`}>
-                  {post.title}
-                </Link>
-              </h2>
-              <time style={{ color: 'var(--gray)', fontSize: '0.9rem' }}>
+      {posts.length === 0 ? (
+        <p style={{ color: 'var(--text-secondary)' }}>
+          No posts yet. Check back soon!
+        </p>
+      ) : (
+        <div className="article-list">
+          {posts.map((post) => (
+            <article key={post.slug} className="article-item">
+              <time>
                 {new Date(post.date).toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
                   day: 'numeric',
                 })}
               </time>
+              <h2 className="article-title">
+                <Link href={`/blog/${post.slug}`}>
+                  {post.title}
+                </Link>
+              </h2>
               {post.excerpt && (
-                <p style={{ marginTop: '0.75rem' }}>{post.excerpt}</p>
+                <p className="article-excerpt">{post.excerpt}</p>
               )}
             </article>
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
