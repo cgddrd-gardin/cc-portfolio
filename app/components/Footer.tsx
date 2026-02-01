@@ -24,9 +24,6 @@ export default function Footer() {
           <a href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer">
             Twitter
           </a>
-          <a href="/rss.xml">
-            RSS
-          </a>
         </div>
       </div>
     </footer>
